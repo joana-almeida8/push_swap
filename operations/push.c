@@ -6,13 +6,13 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 09:35:48 by jreis-de          #+#    #+#             */
-/*   Updated: 2025/12/23 11:59:47 by jreis-de         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:22:59 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	push(t_stack **stack_from, t_stack **stack_to)
+/* void	push(t_stack **stack_from, t_stack **stack_to)
 {
 	t_stack	*tmp;
 
@@ -20,7 +20,7 @@ void	push(t_stack **stack_from, t_stack **stack_to)
 		return ;
 	tmp = *stack_from;
 	
-}
+} */
 
 
 
