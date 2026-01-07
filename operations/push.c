@@ -5,68 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 09:35:48 by jreis-de          #+#    #+#             */
-/*   Updated: 2025/12/30 16:22:59 by jreis-de         ###   ########.fr       */
+/*   Created: 2026/01/07 13:45:47 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/07 15:13:17 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/* void	push(t_stack **stack_from, t_stack **stack_to)
+void	pab(t_stack *from, t_stack *to)
 {
-	t_stack	*tmp;
-
-	if (stack_from == NULL || stack_to == NULL)
-		return ;
-	tmp = *stack_from;
+	int	i;
 	
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* void	push(t_stack **stack_from, t_stack **stack_to)
-{
-	t_stack	*tmp;
-
-	if (stack_from == NULL || *stack_from == NULL)
-		return ;
-	tmp = *stack_from;
-	*stack_from = (*stack_from)->next;
-	if (stack_to == NULL)
-		*stack_to = tmp;
-	else
+	to->size++;
+	i = 1;
+	while (to->array[i +1])
 	{
-		tmp->next = *stack_to;
-		*stack_to = tmp;
+		to->array[i] = to->array[i +1];
+		i++;
 	}
+	to->array[0] = from->array[0];
+	i = 0;
+	while (from->array[i +1])
+	{
+		from->array[i] = from->array[i +1];
+		i++;
+	}
+	from->size--;
 }
-
-void	push_a(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_b, stack_a);
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_a, stack_b);
-	write(1, "pb\n", 3);
-} */

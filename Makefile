@@ -6,24 +6,31 @@
 #    By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2025/12/15 09:09:07 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/07 15:15:46 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
-SRCS = 
+SRCS = main.c \
+		libft/printf/ft_printf_utils.c libft/printf/ft_printf_utilz.c \
+		libft/printf/ft_printf.c libft/ft_calloc.c libft/ft_substr.c \
+		libft/ft_bzero.c libft/ft_strlen.c \
+		parsing/counting.c parsing/parse.c parsing/utils.c \
+		operations/push.c operations/reverse.c \
+		operations/rotate.c operations/swap.c \
+
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I Includes
+CFLAGS = -Wall -Wextra -Werror -I include
 AR = ar rcs
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -31,7 +38,7 @@ $(NAME): $(OBJS)
 clean:
 	$(RM) $(OBJS)
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all

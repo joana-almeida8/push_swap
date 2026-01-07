@@ -6,95 +6,104 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2025/12/30 16:29:04 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/07 11:35:53 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	arg_check(char *str)
+int	find_num(char *str, int j)
+{
+	// ft_printf("str: %s\n", str);
+	// while (str[j] <= 32)
+	// 	j++;
+	while (ft_isdigit(str[j]) == 1 || (str[j] == '-' || str[j] == '+'))
+	{
+		// ft_printf("str[j]: %c\n", str[j]);
+		j++;
+	}
+	return (j);
+}
+
+int	check_double(long *array, int num)
 {
 	int	i;
-	int	check;
 
 	i = 0;
-	check = 0;
-	while (str[i] <= 32 || str[i] == '+' || str[i] == '-')
-		i++;
-	if (ft_isdigit(str[i]) == 1)
+	while (i < num)
 	{
-		check = 1;
+		if (array[i] == num)
+			return (1);
 		i++;
 	}
-	while (ft_isdigit(str[i]) == 1)
-		i++;
-	while (str[i] <= 32)
-		i++;
-	if (ft_isdigit(str[i]) == 1)
-	{
-		check = 2;
-		i++;
-	}
-	if (str[i] > 32 && is_num(str[i]) == 0)
-		check = 0;
-	return (check);
+	return (0);
 }
 
-int	*parse_to_array(int ac, char **av, int i, int j)
+long	ft_atol(char *str)
 {
-	int	*args;
+	long	res;
+	int		sign;
+	int		i;
 
-	args = malloc((count_num(ac, av) + 1) * sizeof(int));
-	if (!args)
-		return (0);
+	i = 0;
+	sign = 0;
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i +1]) == 1)
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	res = 0;
+	while (str[i] && ft_isdigit(str[i]) == 1)
+	{
+		res = (res * 10) + str[i] - '0';
+		i++;
+	}
+	// ft_printf("%d\n", (res * sign));
+	if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
+		return (ft_printf("MINMAX Error\n"), exit(1), 1);
+	return (res * sign);
+}
+
+int	fill_array(char **av, int i, int k, long *args)
+{
+	int		end;
+	int		j;
+	char	*substr;
+
+	j = 0;
+	while (av[i][j])
+	{
+		end = j;
+		if (ft_isdigit(av[i][j]) == 1 || av[i][j] == '-' || av[i][j] == '+')
+		{
+			end = find_num(av[i], j);
+			// ft_printf("j: %d, end:%d\n", j, end);
+			substr = ft_substr(av[i], j, end);
+			if (!substr)
+				return (0);
+			args[k] = ft_atol(substr);
+			free_str(&substr);
+			if (check_double(args, args[k]) == 1)
+				return (ft_printf("Double Error\n"), exit(1), 1);
+			k++;
+		}
+		j = end + 1;
+	}
+	return (1);
+}
+
+long	*parse_to_array(long *args, char **av, int i)
+{
+	int	k;
+	int	j;
+
+	k = 0;
 	while (av[i])
 	{
-		if (arg_check(av[i]) == 1)
-		{
-			args[j] = ft_atol(av[i]);
-			if (args == 4444422222)
-				return (0);
-		}
-		else if (arg_check(av[i]) == 0)
-			return (0);
-		else if (arg_check(av[i]) == 2)
-		{
-			args[j] = 424242;
-		}
+		j = 0;
+		fill_array(av, i, k, args);
 		i++;
-		j++;
 	}
 	return (args);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		/* if (ft_atol(str[i]) <= INT_MAX)
-			args[j] = ft_atol(str[i]);
-		else if (ft_atol(str[i]) == 4444422222)
-			return (0);
-		else if (ft_atol(str[i]) == 2222244444)
-		{
-			
-			j++;
-		}
-		i++;
-		j++;
-	}
-	return (args);
-} */

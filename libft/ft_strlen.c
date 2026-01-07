@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 09:45:36 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 08:30:19 by jreis-de         ###   ########.fr       */
+/*   Created: 2025/10/17 15:04:08 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/06 13:34:21 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	*ft_calloc(size_t count, size_t size)
+size_t	ft_strlen(const char *str)
 {
-	unsigned char	*str;
+	size_t	i;
 
-	if (count == 0 || size == 0)
-		return (malloc(0));
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	str = malloc (count * size);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, (count * size));
-	return ((void *)str);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
+
+/* int	main(void)
+{
+	char	str[] = NULL;
+
+	printf("ft_strlen: %zu\n", ft_strlen(str));
+	printf("strlen: %zu\n", strlen(str));
+	return (0);
+} */
