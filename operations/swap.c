@@ -6,29 +6,40 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 09:35:48 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 14:39:00 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/08 10:53:49 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sab(t_stack *s)
+void	sa(t_stack *s)
 {
-	int	*temp;
+	long	tmp;
 
 	if (s->size < 2)
 		return ;
-	temp = s->array[0];
-	s->array[1] = s->array[1];
-	s->array[1] = temp;
+	tmp = s->array[0];
+	s->array[0] = s->array[1];
+	s->array[1] = tmp;
+}
+
+void	sb(t_stack *s)
+{
+	long	tmp;
+
+	if (s->size < 2)
+		return ;
+	tmp = s->array[0];
+	s->array[0] = s->array[1];
+	s->array[1] = tmp;
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	if (a->size < 2 || b->size < 2)
 		return ;
-	sab(a);
-	sab(b);
+	sa(a);
+	sb(b);
 }
 
 

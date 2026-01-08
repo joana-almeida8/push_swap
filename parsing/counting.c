@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:18:42 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 11:39:50 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:02:57 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,11 @@ int	arg_check_num(char *str)
 		}
 		if (ft_isdigit(str[i]) == 1)
 		{
-			// ft_printf("%d, %c\n", count, str[i]);
 			count++;
 			while (ft_isdigit(str[i]) == 1)
 				i++;
 		}
 	}
-	// ft_printf("%d\n", count);
 	return (count);
 }
 
@@ -105,14 +103,12 @@ size_t	count_nums(int ac, char **av)
 		{
 			if (!validate_input(av[i]))
 			{
-				// ft_printf("%s", av[i]);
 				ft_printf("Error1\n");
 				exit(1);
 			}
 			count += arg_check_num(av[i]);
 			i++;
 		}
-		// ft_printf("Count: %d\n", count);
 		return (count);
 	}
 	return (0);

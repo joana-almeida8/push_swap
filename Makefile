@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/07 15:15:46 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/08 13:09:24 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = main.c \
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I include
+CFLAGS = -Wall -Wextra -Werror -I include -g
 AR = ar rcs
 RM = rm -f
 

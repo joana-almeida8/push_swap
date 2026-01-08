@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 11:35:53 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:45:34 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 int	find_num(char *str, int j)
 {
-	// ft_printf("str: %s\n", str);
-	// while (str[j] <= 32)
-	// 	j++;
 	while (ft_isdigit(str[j]) == 1 || (str[j] == '-' || str[j] == '+'))
-	{
-		// ft_printf("str[j]: %c\n", str[j]);
 		j++;
-	}
 	return (j);
 }
 
@@ -59,7 +53,6 @@ long	ft_atol(char *str)
 		res = (res * 10) + str[i] - '0';
 		i++;
 	}
-	// ft_printf("%d\n", (res * sign));
 	if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
 		return (ft_printf("MINMAX Error\n"), exit(1), 1);
 	return (res * sign);
@@ -78,17 +71,18 @@ int	fill_array(char **av, int i, int k, long *args)
 		if (ft_isdigit(av[i][j]) == 1 || av[i][j] == '-' || av[i][j] == '+')
 		{
 			end = find_num(av[i], j);
-			// ft_printf("j: %d, end:%d\n", j, end);
 			substr = ft_substr(av[i], j, end);
 			if (!substr)
 				return (0);
 			args[k] = ft_atol(substr);
-			free_str(&substr);
 			if (check_double(args, args[k]) == 1)
-				return (ft_printf("Double Error\n"), exit(1), 1);
+				return (free_str(substr), ft_printf("Double Error\n"), exit(1), 1);
 			k++;
+			free_str(substr);
+			j = end;
 		}
-		j = end + 1;
+		else 
+			j++;
 	}
 	return (1);
 }

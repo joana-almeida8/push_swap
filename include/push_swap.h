@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:13:40 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 11:34:09 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:02:39 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-// STRUCTURES
+// STRUCTURES //
 typedef struct s_stack
 {
 	size_t	capacity;
@@ -31,36 +31,50 @@ typedef struct s_stack
 	long	*array;
 }	t_stack;
 
-// UTILS
-t_stack	*init_stack(t_stack *a, long *input, size_t len);
-void	*free_str(char **str);
-void	*free_array(long **array);
+// OPERATIONS //
+void	sa(t_stack *s);
+void	sb(t_stack *s);
+void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *from, t_stack *to);
+void	pb(t_stack *from, t_stack *to);
+void	ra(t_stack *s);
+void	rb(t_stack *s);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *s);
+void	rrb(t_stack *s);
+void	rrr(t_stack *a, t_stack *b);
 
-// COUNT_NUMBRS
+
+// PARSING //
+// _utils
+t_stack	*init_stack(t_stack *a, long *input, size_t len);
+void	free_all(t_stack *a, t_stack *b, long *input);
+void	*free_str(char *str);
+void	*free_array(long *array);
+
+// _count_numbrs
 int		validate_input(char *str);
 int		arg_check_num(char *str);
 size_t	count_nums(int ac, char **av);
 int		ft_isdigit(char c);
 int		minmax_check(char *str, int j);
 
-// PARSE_TO_NUMBRS
+// _parse
 long	*parse_to_array(long *args, char **av, int i);
 int		check_double(long *array, int num);
 int		find_num(char *str, int j);
 long	ft_atol(char *str);
 int		fill_array(char **av, int i, int k, long *args);
 
-// OPERATIONS
-void	push();
 
-// LIBFT
+// LIBFT //
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *str);
 
-// PRINTF
+// _printf
 int		ft_printf(const char *str, ...);
 int		ft_putchar_pf(char c);
 int		ft_putstr_pf(char *str);
