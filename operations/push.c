@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:45:47 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/08 10:54:51 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:37:12 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	pa(t_stack *from, t_stack *to)
 		i++;
 	}
 	from->size--;
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *from, t_stack *to)
@@ -52,4 +53,5 @@ void	pb(t_stack *from, t_stack *to)
 		i++;
 	}
 	from->size--;
+	ft_printf("pb\n");
 }

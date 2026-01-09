@@ -6,48 +6,53 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:12:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/08 10:55:28 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:44:43 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ra(t_stack *s)
+void	ra(t_stack *s, int	print_check)
 {
-	int	i;
-	int	size;
+	unsigned long	i;
+	unsigned long	tmp;
 	
 	i = 0;
-	size = s->size;
-	s->array[0] = s->array[size];
-	while (size >= 1)
+	tmp = s->array[0];
+	while (i < (s->size - 1))
 	{
-		s->array[size] = s->array[size -1];
-		size--;
+		s->array[i] = s->array[i +1];
+		i++;
 	}
+	s->array[i] = tmp;
+	if (print_check == 0)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack *s)
+void	rb(t_stack *s, int	print_check)
 {
-	int	i;
-	int	size;
+	unsigned long	i;
+	unsigned long	tmp;
 	
 	i = 0;
-	size = s->size;
-	s->array[0] = s->array[size];
-	while (size >= 1)
+	tmp = s->array[0];
+	while (i < (s->size - 1))
 	{
-		s->array[size] = s->array[size -1];
-		size--;
+		s->array[i] = s->array[i +1];
+		i++;
 	}
+	s->array[i] = tmp;
+	if (print_check == 0)
+		ft_printf("rb\n");
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
 	if (a->size < 2 || b->size < 2)
 		return ;
-	ra(a);
-	rb(b);
+	ra(a, 1);
+	rb(b, 1);
+	ft_printf("rr\n");
 }
 
 /* array = {0, 1, 2, 3, 4, 5};

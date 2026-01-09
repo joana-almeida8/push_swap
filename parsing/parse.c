@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/08 13:45:34 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:47:05 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 int	find_num(char *str, int j)
 {
-	while (ft_isdigit(str[j]) == 1 || (str[j] == '-' || str[j] == '+'))
+	if ((str[j] == '-' || str[j] == '+'))
+		j++;
+	while (ft_isdigit(str[j]) == 1)
 		j++;
 	return (j);
 }
 
-int	check_double(long *array, int num)
+int	check_double(long *array, int k, long num)
 {
 	int	i;
 
 	i = 0;
-	while (i < num)
+	while (i < k)
 	{
 		if (array[i] == num)
 			return (1);
@@ -40,7 +42,7 @@ long	ft_atol(char *str)
 	int		i;
 
 	i = 0;
-	sign = 0;
+	sign = 1;
 	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i +1]) == 1)
 	{
 		if (str[i] == '-')
@@ -75,7 +77,7 @@ int	fill_array(char **av, int i, int k, long *args)
 			if (!substr)
 				return (0);
 			args[k] = ft_atol(substr);
-			if (check_double(args, args[k]) == 1)
+			if (check_double(args, k, args[k]) == 1)
 				return (free_str(substr), ft_printf("Double Error\n"), exit(1), 1);
 			k++;
 			free_str(substr);

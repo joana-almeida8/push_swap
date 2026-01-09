@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/08 13:09:24 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/09 13:51:56 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = main.c \
 		parsing/counting.c parsing/parse.c parsing/utils.c \
 		operations/push.c operations/reverse.c \
 		operations/rotate.c operations/swap.c \
+		algorithm/big_swaps.c algorithm/small_swaps.c \
 
 OBJS = $(SRCS:.c=.o)
 
