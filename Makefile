@@ -6,41 +6,50 @@
 #    By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/09 13:51:56 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/13 08:58:32 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = main.c \
-		libft/printf/ft_printf_utils.c libft/printf/ft_printf_utilz.c \
-		libft/printf/ft_printf.c libft/ft_calloc.c libft/ft_substr.c \
-		libft/ft_bzero.c libft/ft_strlen.c \
-		parsing/counting.c parsing/parse.c parsing/utils.c \
-		operations/push.c operations/reverse.c \
-		operations/rotate.c operations/swap.c \
-		algorithm/big_swaps.c algorithm/small_swaps.c \
+LIBFT = srcs/libft/
+PARSE = srcs/parse/
+OPS = srcs/ops/
+ALG = srcs/algorithm/
 
-OBJS = $(SRCS:.c=.o)
+SRCS = main.c \
+		$(LIBFT)printf/ft_printf_utils.c $(LIBFT)printf/ft_printf_utilz.c \
+		$(LIBFT)printf/ft_printf.c $(LIBFT)ft_calloc.c $(LIBFT)ft_substr.c \
+		$(LIBFT)ft_bzero.c $(LIBFT)ft_strlen.c \
+		$(PARSE)counting.c $(PARSE)parse.c $(PARSE)utils.c \
+		$(OPS)push.c $(OPS)reverse.c $(OPS)rotate.c $(OPS)swap.c \
+		$(ALG)operate_stack.c $(ALG)small_swaps.c $(ALG)big_swaps.c \
+
+OBJ_DIR = objs
+OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I include -g
-AR = ar rcs
-RM = rm -f
+RM = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
+vpath %.c $(dir $(SRCS))
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ_DIR)
+	@echo "Objects and $(OBJ_DIR)/ directory removed."
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "Removed $(NAME)"
 
 re: fclean all
 

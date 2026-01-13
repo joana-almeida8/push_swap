@@ -6,11 +6,11 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:18:42 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/08 12:02:57 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:17:20 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	ft_isdigit(char c)
 {
@@ -90,10 +90,10 @@ int	arg_check_num(char *str)
 	return (count);
 }
 
-size_t	count_nums(int ac, char **av)
+int	count_nums(int ac, char **av)
 {
-	size_t	count;
-	int		i;
+	int	count;
+	int	i;
 
 	if (ac > 1)
 	{

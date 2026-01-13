@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:33:37 by jreis-de          #+#    #+#             */
-/*   Updated: 2025/12/30 16:30:00 by jreis-de         ###   ########.fr       */
+/*   Created: 2025/10/24 09:45:36 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/12 16:18:54 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	ft_atoi(const char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
-	int	minus;
-	int	result;
+	unsigned char	*str;
 
-	i = 0;
-	minus = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			minus = -1;
-		i++;
-	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * minus);
+	if (count == 0 || size == 0)
+		return (malloc(0));
+	if (size != 0 && count > SIZE_MAX / size)
+		return (NULL);
+	str = malloc (count * size);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, (count * size));
+	return ((void *)str);
 }

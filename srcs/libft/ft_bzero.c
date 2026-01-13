@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 09:45:36 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 08:30:19 by jreis-de         ###   ########.fr       */
+/*   Created: 2025/10/21 09:29:43 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/12 16:18:51 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*str;
+	unsigned char	*b;
 
-	if (count == 0 || size == 0)
-		return (malloc(0));
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	str = malloc (count * size);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, (count * size));
-	return ((void *)str);
+	b = (unsigned char *)s;
+	while (n > 0)
+	{
+		*b++ = 0;
+		n--;
+	}
 }

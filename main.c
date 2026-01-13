@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:25:29 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/09 14:05:34 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:20:40 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
-	long	*input;
-	size_t	len;
+	int		*input;
+	int		len;
 
 	if (ac < 2)
-		return (ft_printf("Error4\n"), 0);
+		return (ft_printf("Error\n"), 0);
 	len = count_nums(ac, av);
-	input = malloc(len * sizeof(long));
+	input = malloc(len * sizeof(int));
 	if (!input)
-		return (ft_printf("Error2\n"), 0);
+		return (ft_printf("Error\n"), 0);
 	input = parse_to_array(input, av, 1);
 	if (!input)
-		return (ft_printf("Error3\n"), 0);
+		return (ft_printf("Error\n"), 0);
 	a = init_stack(NULL, input, len);
 	b = init_stack(NULL, NULL, len);
 	if (!a || !b)

@@ -6,11 +6,11 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/09 15:47:05 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:17:25 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	find_num(char *str, int j)
 {
@@ -21,7 +21,7 @@ int	find_num(char *str, int j)
 	return (j);
 }
 
-int	check_double(long *array, int k, long num)
+int	check_double(int *array, int k, long num)
 {
 	int	i;
 
@@ -60,7 +60,7 @@ long	ft_atol(char *str)
 	return (res * sign);
 }
 
-int	fill_array(char **av, int i, int k, long *args)
+int	fill_array(char **av, int i, int k, int *args)
 {
 	int		end;
 	int		j;
@@ -73,12 +73,12 @@ int	fill_array(char **av, int i, int k, long *args)
 		if (ft_isdigit(av[i][j]) == 1 || av[i][j] == '-' || av[i][j] == '+')
 		{
 			end = find_num(av[i], j);
-			substr = ft_substr(av[i], j, end);
+			substr = ft_substr(av[i], j, end - j);
 			if (!substr)
 				return (0);
 			args[k] = ft_atol(substr);
 			if (check_double(args, k, args[k]) == 1)
-				return (free_str(substr), ft_printf("Double Error\n"), exit(1), 1);
+				return (free_str(substr), ft_printf("Error\n"), exit(1), 1);
 			k++;
 			free_str(substr);
 			j = end;
@@ -86,10 +86,10 @@ int	fill_array(char **av, int i, int k, long *args)
 		else 
 			j++;
 	}
-	return (1);
+	return (k);
 }
 
-long	*parse_to_array(long *args, char **av, int i)
+int	*parse_to_array(int *args, char **av, int i)
 {
 	int	k;
 	int	j;
@@ -98,7 +98,7 @@ long	*parse_to_array(long *args, char **av, int i)
 	while (av[i])
 	{
 		j = 0;
-		fill_array(av, i, k, args);
+		k = fill_array(av, i, k, args);
 		i++;
 	}
 	return (args);

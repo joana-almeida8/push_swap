@@ -6,13 +6,13 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:09:06 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/08 14:02:04 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:17:30 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	free_all(t_stack *a, t_stack *b, long *input)
+void	free_all(t_stack *a, t_stack *b, int *input)
 {
 	if (a)
 		free(a);
@@ -28,40 +28,18 @@ void	free_all(t_stack *a, t_stack *b, long *input)
 
 void	*free_str(char *str)
 {
-	/* int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	} */
 	free(str);
 	return (NULL);
 }
 
-/* void	*free_array(long *array)
+t_stack	*init_stack(t_stack *s, int *input, unsigned int len)
 {
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-	return (NULL);
-} */
-
-t_stack	*init_stack(t_stack *s, long *input, size_t len)
-{
-	long	*inputb;
+	int	*inputb;
 	
 	s = malloc(sizeof(t_stack));
 	if (!s)
 	{
-		ft_printf("Error5\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	s->capacity = len;
@@ -73,7 +51,7 @@ t_stack	*init_stack(t_stack *s, long *input, size_t len)
 	else
 	{
 		s->size = 0;
-		inputb = malloc(len * sizeof(long));
+		inputb = malloc(len * sizeof(int));
 		if (!inputb)
 			return (NULL);
 		s->array = inputb;

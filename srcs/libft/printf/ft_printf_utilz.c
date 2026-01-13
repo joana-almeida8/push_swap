@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utilz.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:04:08 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/06 13:34:21 by jreis-de         ###   ########.fr       */
+/*   Created: 2025/11/12 14:02:06 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/12 16:19:18 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../../include/push_swap.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_putchar_pf(char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	return (write(1, &c, 1));
 }
 
-/* int	main(void)
+int	ft_putstr_pf(char *str)
 {
-	char	str[] = NULL;
+	size_t	count;
 
-	printf("ft_strlen: %zu\n", ft_strlen(str));
-	printf("strlen: %zu\n", strlen(str));
-	return (0);
-} */
+	if (!str)
+		return (ft_putstr_pf("(null)"));
+	count = 0;
+	while (str[count])
+	{
+		ft_putchar_pf(str[count]);
+		count++;
+	}
+	return (count);
+}

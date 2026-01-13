@@ -6,13 +6,13 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:15:01 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/07 08:30:23 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:19:00 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, unsigned int len)
 {
 	char			*str;
 	unsigned int	i;

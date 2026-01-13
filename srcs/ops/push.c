@@ -6,52 +6,43 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:45:47 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/09 14:37:12 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:17:44 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	pa(t_stack *from, t_stack *to)
+void	push(t_stack *from, t_stack *to)
 {
-	int	i;
+	unsigned long	i;
 	
-	to->size++;
-	i = 1;
-	while (to->array[i +1])
+	if (from->size == 0 || to->size >= to->capacity)
+		return;
+	i = to->size;
+	while (i > 0)
 	{
-		to->array[i] = to->array[i +1];
-		i++;
+		to->array[i] = to->array[i - 1];
+		i--;
 	}
 	to->array[0] = from->array[0];
+	to->size++;
 	i = 0;
-	while (from->array[i +1])
+	while (i < from->size - 1)
 	{
-		from->array[i] = from->array[i +1];
+		from->array[i] = from->array[i + 1];
 		i++;
 	}
 	from->size--;
+}
+
+void push_a(t_stack *a, t_stack *b)
+{
+	push(b, a);
 	ft_printf("pa\n");
 }
 
-void	pb(t_stack *from, t_stack *to)
+void push_b(t_stack *a, t_stack *b)
 {
-	int	i;
-	
-	to->size++;
-	i = 1;
-	while (to->array[i +1])
-	{
-		to->array[i] = to->array[i +1];
-		i++;
-	}
-	to->array[0] = from->array[0];
-	i = 0;
-	while (from->array[i +1])
-	{
-		from->array[i] = from->array[i +1];
-		i++;
-	}
-	from->size--;
+	push(a, b);
 	ft_printf("pb\n");
 }

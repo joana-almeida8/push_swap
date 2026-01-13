@@ -6,17 +6,19 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:12:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/09 15:44:43 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:17:51 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	ra(t_stack *s, int	print_check)
+void	rotate(t_stack *s)
 {
-	unsigned long	i;
-	unsigned long	tmp;
-	
+	unsigned int	i;
+	int				tmp;
+
+	if (s->size < 2)
+        return;
 	i = 0;
 	tmp = s->array[0];
 	while (i < (s->size - 1))
@@ -24,34 +26,25 @@ void	ra(t_stack *s, int	print_check)
 		s->array[i] = s->array[i +1];
 		i++;
 	}
-	s->array[i] = tmp;
-	if (print_check == 0)
-		ft_printf("ra\n");
+	s->array[s->size - 1] = tmp;
 }
 
-void	rb(t_stack *s, int	print_check)
+void	rotate_a(t_stack *a)
 {
-	unsigned long	i;
-	unsigned long	tmp;
-	
-	i = 0;
-	tmp = s->array[0];
-	while (i < (s->size - 1))
-	{
-		s->array[i] = s->array[i +1];
-		i++;
-	}
-	s->array[i] = tmp;
-	if (print_check == 0)
-		ft_printf("rb\n");
+	rotate(a);
+	ft_printf("ra\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rotate_b(t_stack *b)
 {
-	if (a->size < 2 || b->size < 2)
-		return ;
-	ra(a, 1);
-	rb(b, 1);
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	rotate_ab(t_stack *a, t_stack *b)
+{
+	rotate_a(a);
+	rotate_b(b);
 	ft_printf("rr\n");
 }
 

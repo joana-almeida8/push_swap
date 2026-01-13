@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   big_swaps2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 09:29:43 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/06 13:29:56 by jreis-de         ###   ########.fr       */
+/*   Created: 2026/01/13 11:18:40 by jreis-de          #+#    #+#             */
+/*   Updated: 2026/01/13 11:19:08 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	ft_bzero(void *s, size_t n)
+void	calc_cost(t_stack *a, t_stack *b, int index)
 {
-	unsigned char	*b;
+	// calc the smaller number of moves to get the highest nbr on top
+}
 
-	b = (unsigned char *)s;
-	while (n > 0)
-	{
-		*b++ = 0;
-		n--;
-	}
+int	biggest_nbr_index(t_stack *a)
+{
+	// find the biggest nbr index to push it to *b
 }
