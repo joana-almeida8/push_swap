@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:13:40 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/13 09:58:30 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:33:39 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ typedef struct s_stack
 
 
 // ALGORITHM //
-void	operate_stack(t_stack *a, t_stack *b);
-int		smallest_nbr_index(t_stack *a);
+int		operate_stacks(t_stack *a, t_stack *b);
+//int		smallest_nbr_index(t_stack *a);
 void	sort_3(t_stack *a);
 void	sort_4_base(t_stack *a, t_stack *b);
 void	sort_4(t_stack *a, t_stack *b);
 void	sort_5_base(t_stack *a, t_stack *b);
 void	sort_5(t_stack *a, t_stack *b);
-void	turk_swap(t_stack *a, t_stack *b);
+int		big_swap(t_stack *a, t_stack *b);
 
 
 // OPERATIONS //

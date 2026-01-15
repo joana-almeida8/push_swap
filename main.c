@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:25:29 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:20:40 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:33:20 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(int ac, char **av)
 	a = init_stack(NULL, input, len);
 	b = init_stack(NULL, NULL, len);
 	if (!a || !b)
-		return (free_all(a, b, input), 0);
-	operate_stack(a, b);
-	return (free_all(a, b, input), 0);
+		return (ft_printf("Error\n"), free_all(a, b, input), 0);
+	if (!operate_stacks(a, b))
+		return (0);
+	return (ft_printf("Error\n"), free_all(a, b, input), 0);
 }

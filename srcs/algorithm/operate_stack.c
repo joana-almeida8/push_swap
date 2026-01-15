@@ -6,13 +6,13 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:22:24 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/13 08:39:16 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:33:23 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	smallest_nbr_index(t_stack *a)
+/* int	smallest_nbr_index(t_stack *a)
 {
 	unsigned int	i;
 	int				min;
@@ -31,9 +31,9 @@ int	smallest_nbr_index(t_stack *a)
 		i++;
 	}
 	return (min_pos);
-}
+} */
 
-void	operate_stack(t_stack *a, t_stack *b)
+int	operate_stacks(t_stack *a, t_stack *b)
 {
 	if (a->size == 2)
 	{
@@ -46,6 +46,7 @@ void	operate_stack(t_stack *a, t_stack *b)
 		sort_4(a, b);
 	else if (a->size == 5)
 		sort_5(a, b);
-	// else
-	// 	turk_swap(a, b);
+	else
+		return (big_swap(a, b));
+	return (1);
 }
