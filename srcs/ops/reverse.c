@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 09:55:12 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:17:47 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:08:26 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reverse(t_stack *s)
 	unsigned int	size;
 
 	if (s->size < 2)
-        return;
+		return ;
 	size = s->size -1;
 	tmp = s->array[size];
 	while (size >= 1)
@@ -39,7 +39,6 @@ void	reverse_b(t_stack *b)
 {
 	reverse(b);
 	ft_printf("rrb\n");
-	
 }
 
 void	reverse_ab(t_stack *a, t_stack *b)

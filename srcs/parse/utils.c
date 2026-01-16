@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:09:06 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:17:30 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:05:14 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	*free_str(char *str)
 	return (NULL);
 }
 
-t_stack	*init_stack(t_stack *s, int *input, unsigned int len)
+t_stack	*init_stack(t_stack *s, int *input, int	*tmp_array, int len)
 {
 	int	*inputb;
-	
+
 	s = malloc(sizeof(t_stack));
 	if (!s)
 	{
@@ -47,6 +47,7 @@ t_stack	*init_stack(t_stack *s, int *input, unsigned int len)
 	{
 		s->size = len;
 		s->array = input;
+		s->tmp_array = tmp_array;
 	}
 	else
 	{
@@ -55,6 +56,7 @@ t_stack	*init_stack(t_stack *s, int *input, unsigned int len)
 		if (!inputb)
 			return (NULL);
 		s->array = inputb;
+		s->tmp_array = NULL;
 	}
 	return (s);
 }

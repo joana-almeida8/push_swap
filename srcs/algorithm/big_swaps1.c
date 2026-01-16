@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:09:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/15 15:32:10 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 17:49:06 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b)
 {
-	int	dif_start;
-	int	dif_end;
-
-	dif_start = index - 0;
-	dif_end = a->size - index;
-	if (dif_start < dif_end)
+	if (index < a->size / 2)
 	{
 		while (index > 0)
 		{
@@ -39,28 +34,25 @@ void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b)
 	}
 }
 
-void	pre_sort_b(int *tmp_array, int chunk_size, int chunks_nbr, 
-	t_stack *a, t_stack *b)
+void	pre_sort_b(int chunks_nbr, t_stack *a, t_stack *b)
 {
 	unsigned int	index;
 	int				chunk;
-	int				chunk_min;
 	int				chunk_max;
+	int				chunk_size;
 
-	index = 0;
 	chunk = 1;
-	while (index <= a->size && a->size > 3 && chunk <= chunks_nbr)
+	chunk_size = a->size / chunks_nbr;
+	while (a->size > 3)
 	{
-		chunk_max = get_chunk_max(tmp_array, chunk, chunks_nbr, chunk_size, a);
-		chunk_min = tmp_array[chunk_max - chunk_size];
-		while (index < a->size)
+		index = 0;
+		chunk_max = get_chunk_max(chunk, chunks_nbr, chunk_size, a);
+		while (a->size > 3 && index < a->size)
 		{
-			if (a->array[index] <= tmp_array[chunk_max])
+			if (a->array[index] <= chunk_max)
 			{
 				calc_cost_push_b(index, a, b);
 				index = 0;
-				if (b->array[0] <= tmp_array[chunk_max - ((chunk_max + chunk_min) / 2)])
-					rotate_b(b);
 			}
 			else
 				index++;
@@ -69,57 +61,64 @@ void	pre_sort_b(int *tmp_array, int chunk_size, int chunks_nbr,
 	}
 }
 
-int	get_chunks_nbr(t_stack *a)
+void	sort_tmp_array(int *tmp_array, int *input, int len)
 {
-	if (a->size <= 10)
-		return (5);
-	else if (a->size <= 100)
-		return (16);
-	else
-		return (35);
-}
-
-void	sort_tmp_array(int *tmp_array, t_stack *a)
-{
-	unsigned int	index;
-	unsigned int	j;
+	int	index;
+	int	j;
 
 	index = 0;
-	while (index < a->size)
+	while (index < len)
 	{
-		tmp_array[index] = a->array[index];
+		tmp_array[index] = input[index];
 		index++;
 	}
 	index = 0;
-    while (index < a->size - 1)
-    {
-        j = 0;
-        while (j < a->size - index - 1)
-        {
-            if (tmp_array[j] > tmp_array[j + 1])
-				ft_swap(tmp_array[j], tmp_array[j + 1]);
-            j++;
-        }
-        index++;
-    }
+	while (index < len - 1)
+	{
+		j = 0;
+		while (j < len - index - 1)
+		{
+			if (tmp_array[j] > tmp_array[j + 1])
+				ft_swap(&tmp_array[j], &tmp_array[j + 1]);
+			j++;
+		}
+		index++;
+	}
 }
 
-int	big_swap(t_stack *a, t_stack *b)
+void	ft_swap(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	big_swap(t_stack *a, t_stack *b)
 {
 	int	index;
 	int	chunks_nbr;
-	int	chunk_size;
-	int	*tmp_array;
+	int	min_nbr_idx;
 
 	index = 0;
-	tmp_array = malloc(a->size * sizeof(int));
-	if (!tmp_array)
-		return (0);
-	sort_tmp_array(tmp_array, a);
 	chunks_nbr = get_chunks_nbr(a);
-	chunk_size = a->size / chunks_nbr;
-	pre_sort_b(tmp_array, chunk_size, chunks_nbr, a, b);
-	free(tmp_array);
+	pre_sort_b(chunks_nbr, a, b);
+	free(a->tmp_array);
 	sort_3(a);
-	return (1);
+	turc_push_to_a(a, b);
+	min_nbr_idx = smallest_nbr_index(a);
+	if (min_nbr_idx < (int)a->size / 2)
+	{
+		while (min_nbr_idx-- > 0)
+			rotate_a(a);
+	}
+	else
+	{
+		while (min_nbr_idx < (int)a->size)
+		{
+			reverse_a(a);
+			min_nbr_idx++;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:17:25 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:05:06 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	fill_array(char **av, int i, int k, int *args)
 			free_str(substr);
 			j = end;
 		}
-		else 
+		else
 			j++;
 	}
 	return (k);

@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:51:32 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/13 09:57:33 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:05:54 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void	sort_5(t_stack *a, t_stack *b)
 	{
 		reverse_a(a);
 		sort_5_base(a, b);
-	}	
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:12:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:17:51 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:08:39 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate(t_stack *s)
 	int				tmp;
 
 	if (s->size < 2)
-        return;
+		return ;
 	i = 0;
 	tmp = s->array[0];
 	while (i < (s->size - 1))
@@ -47,8 +47,3 @@ void	rotate_ab(t_stack *a, t_stack *b)
 	rotate_b(b);
 	ft_printf("rr\n");
 }
-
-/* array = {0, 1, 2, 3, 4, 5};
-
-rotate_array = {5, 0, 1, 2, 3, 4};
-reverse_array = {1, 2, 3, 4, 5, 0}; */

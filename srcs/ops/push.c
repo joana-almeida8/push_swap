@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:45:47 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:17:44 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:03:20 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	push(t_stack *from, t_stack *to)
 {
 	unsigned long	i;
-	
+
 	if (from->size == 0 || to->size >= to->capacity)
-		return;
+		return ;
 	i = to->size;
 	while (i > 0)
 	{
@@ -35,13 +35,13 @@ void	push(t_stack *from, t_stack *to)
 	from->size--;
 }
 
-void push_a(t_stack *a, t_stack *b)
+void	push_a(t_stack *a, t_stack *b)
 {
 	push(b, a);
 	ft_printf("pa\n");
 }
 
-void push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b)
 {
 	push(a, b);
 	ft_printf("pb\n");
