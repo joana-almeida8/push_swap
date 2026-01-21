@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:09:06 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:05:14 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:09:49 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	free_all(t_stack *a, t_stack *b, int *input)
 {
-	if (a)
-		free(a);
 	if (input)
 		free(input);
+	if (a)
+		free(a);
 	if (b)
 	{
 		if (b->array)

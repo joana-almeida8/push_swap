@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:25:29 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:12:17 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:12:59 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	int		*tmp_array;
 
 	if (ac < 2)
-		return (ft_printf("Error\n"), 0);
+		return (0);
 	len = count_nums(ac, av);
 	input = malloc(len * sizeof(int));
 	if (!input)

@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:12:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:08:39 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:34:39 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	rotate_b(t_stack *b)
 
 void	rotate_ab(t_stack *a, t_stack *b)
 {
-	rotate_a(a);
-	rotate_b(b);
+	rotate(a);
+	rotate(b);
 	ft_printf("rr\n");
 }

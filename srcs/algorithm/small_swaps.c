@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:51:32 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:05:54 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 09:17:55 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	sort_3(t_stack *a)
 	n1 = a->array[0];
 	n2 = a->array[1];
 	n3 = a->array[2];
-	if (n1 < n2 && n2 < n3)
-		return ;
-	else if (n1 > n2 && n2 < n3 && n1 < n3)
+	if (n1 > n2 && n2 < n3 && n1 < n3)
 		swap_a(a);
 	else if (n1 > n2 && n2 > n3)
 	{

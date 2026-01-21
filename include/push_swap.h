@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:13:40 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:59:10 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:28:33 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,16 @@ void	sort_5(t_stack *a, t_stack *b);
 void	big_swap(t_stack *a, t_stack *b);
 void	sort_tmp_array(int *tmp_array, int *input, int len);
 void	pre_sort_b(int chunks_nbr, t_stack *a, t_stack *b);
-void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b);
 void	ft_swap(int *a, int *b);
 
 void	turc_push_to_a(t_stack *a, t_stack *b);
-int		turc_get_target(t_stack *a, t_stack *b);
+int		turc_get_target(t_stack *a, t_stack *b, int idx_b);
+void	stacks_double_rots(t_stack *a, t_stack *b, int *rot_a, int *rot_b);
+void	rotate_final_stack(t_stack *s, int *rot_s, char flag);
+
+void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b);
+void	calc_cost_rotation(t_stack *a, t_stack *b, int *rot_a, int *rot_b);
+int		calc_total_cost(t_stack *a, t_stack *b, int pos_a, int pos_b);
 
 // OPERATIONS //
 void	swap(t_stack *s);

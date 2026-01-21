@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 09:35:48 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:02:45 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:34:49 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	swap_b(t_stack *b)
 
 void	swap_ab(t_stack *a, t_stack *b)
 {
-	swap_a(a);
-	swap_b(b);
+	swap(a);
+	swap(b);
 	ft_printf("ss\n");
 }

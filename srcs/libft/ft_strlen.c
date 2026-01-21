@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:04:08 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/12 16:18:57 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/21 10:47:08 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,3 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-
-/* int	main(void)
-{
-	char	str[] = NULL;
-
-	printf("ft_strlen: %zu\n", ft_strlen(str));
-	printf("strlen: %zu\n", strlen(str));
-	return (0);
-} */

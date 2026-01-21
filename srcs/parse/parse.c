@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:05:06 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:41:22 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ long	ft_atol(char *str)
 		i++;
 	}
 	if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
-		return (ft_printf("MINMAX Error\n"), exit(1), 1);
+		return (ft_printf("Error\n"), exit(1), 1);
 	return (res * sign);
 }
 

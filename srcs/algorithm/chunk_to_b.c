@@ -1,38 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_swaps1.c                                       :+:      :+:    :+:   */
+/*   chunk_to_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:09:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 17:49:06 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:12:05 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b)
-{
-	if (index < a->size / 2)
-	{
-		while (index > 0)
-		{
-			rotate_a(a);
-			index--;
-		}
-		push_b(a, b);
-	}
-	else
-	{
-		while (index < a->size)
-		{
-			reverse_a(a);
-			index++;
-		}
-		push_b(a, b);
-	}
-}
 
 void	pre_sort_b(int chunks_nbr, t_stack *a, t_stack *b)
 {

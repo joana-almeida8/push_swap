@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 09:55:12 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/16 14:08:26 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:34:32 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	reverse_b(t_stack *b)
 
 void	reverse_ab(t_stack *a, t_stack *b)
 {
-	reverse_a(a);
-	reverse_b(b);
+	reverse(a);
+	reverse(b);
 	ft_printf("rrr\n");
 }
 
