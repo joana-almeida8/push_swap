@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:09:06 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/21 15:09:49 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:57:37 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack	*init_stack(t_stack *s, int *input, int	*tmp_array, int len)
 	s = malloc(sizeof(t_stack));
 	if (!s)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	s->capacity = len;

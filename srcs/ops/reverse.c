@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 09:55:12 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/20 10:34:32 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:56:19 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,3 @@ void	reverse_ab(t_stack *a, t_stack *b)
 	reverse(b);
 	ft_printf("rrr\n");
 }
-
-/* array = {0, 1, 2, 3, 4, 5};
-
-rotate_array = {5, 0, 1, 2, 3, 4};
-reverse_array = {1, 2, 3, 4, 5, 0}; */

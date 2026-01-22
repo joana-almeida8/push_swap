@@ -6,12 +6,12 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:05:47 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/21 16:48:08 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:35:40 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 // LIBRARIES
 # include "../../include/push_swap.h"
@@ -32,9 +32,8 @@ char	*ft_strchr(const char *s, int c);
 // CHECKER
 void	checker(t_stack *a, t_stack *b);
 int		ft_strncmp(char *s1, const char *s2, size_t n);
-int	    check_ops(t_stack *a, t_stack *b, char *line);
-int	    check_ops2(t_stack *a, t_stack *b, char *line);
-int	    a_is_sorted(t_stack *a);
-
+int		check_ops(t_stack *a, t_stack *b, char *line);
+int		check_ops2(t_stack *a, t_stack *b, char *line);
+int		a_is_sorted(t_stack *a, t_stack *b);
 
 #endif

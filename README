@@ -1,0 +1,108 @@
+*This project has been created as part of the 42 curriculum by jreis-de.*
+# Push_Swap
+
+## Description
+
+**Push_swap** is a high-efficiency sorting project where the goal is to sort a stack of integers using a second stack and a very limited set of instructions. The challenge lies in achieving high efficiency under strict operation limits.
+
+Push_swap sorts a list of integers using:
+* Two stacks: **Stack A** and **Stack B**
+* A limited instruction set
+* No direct access to elements beyond the top of each stack
+
+The program outputs the smallest possible sequence of instructions that results in Stack A being sorted in ascending order, with Stack B empty.
+
+### Algorithm Design
+
+My implementation follows a four-stage architecture focused on performance, stability and speed:
+
+1. **Parsing:** I used a robust parser that handles quoted strings (e.g., `./push_swap "1 2 3"`), multiple arguments, integer overflows, and duplicate detection. Input values are first stored in a temporary array for validation and indexing, which simplifies later cost calculations.
+2. **Pre-sort (Chunk to B):** To reduce the complexity for the main algorithm, tack A is divided into chunks based on indexed values. Elements are progressively pushed from **Stack A** to **Stack B** based on these chunks, keeping the numbers somewhat organized in order reduce the complexity of reinsertion during the main algorithm.
+3. **Turk to A:** This is the core logic. I calculate the **cost** of moving each element from B back to its correct position in A. The cost is the sum of rotations needed in both stacks. The algorithm picks the "cheapest" element and uses optimized rotations (like `rr` or `rrr`) to move it.
+4. **Final Alignment:** Once Stack B is empty and Stack A is sorted (but potentially rotated), a final set of rotations ensures the smallest number is at the top.
+
+### Operations Set
+
+| Command | Action |
+| --- | --- |
+| `sa` / `sb` | **Swap**: Swap the first two elements of Stack A or B |
+| `pa` / `pb` | **Push**: Push the top element from one stack to the other |
+| `ra` / `rb` | **Rotate**: Rotate stack up (first element becomes last) |
+| `rra` / `rrb` | **Reverse Rotate**: Reverse rotate stack down (last becomes first) |
+| `rr` | `ra` and `rb` simultaneously |
+| `rrr` | `rra` and `rrb` simultaneously |
+
+### The Checker (Bonus)
+
+The `checker` acts as a virtual machine that:
+
+* Reads instructions from standard input using a custom `get_next_line`.
+* Executes those instructions on a mirrored stack.
+* Validates the final state: **Stack B** must be empty, and **Stack A** must be sorted.
+* Handles errors, ensuring that any invalid instruction prints `Error` to the standard error output.
+
+### Technical Choices: Why Arrays?
+
+Instead of a circular linked list, I chose to represent stacks using **fixed-size arrays** within a struct.
+
+* **Cache Locality:** Arrays are stored in contiguous memory, improving access speed.
+* **Simplicity:** Stack size is known at program start (the number of arguments), so memory is dynamically allocated once.
+* **Fast Indexing:** Direct access by index is critical for efficient cost calculations.
+
+## Instructions
+
+### Compilation
+
+```bash
+make        # Compiles push_swap
+make bonus  # Compiles the checker
+```
+
+### Execution
+
+```bash
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+```
+
+### Visualizer
+
+To see the algorithm in action, you can use this excellent community tool:
+
+* [Push_Swap Visualizer by o-reo](https://github.com/o-reo/push_swap_visualizer)
+
+### Performance
+
+Performance is measured by the number of operations produced.This implementation consistently scores within the **highest evaluation brackets**:
+
+* **3 numbers:** ≤ 3 moves
+* **5 numbers:** ≤ 12 moves
+* **100 numbers:** < 700 moves
+* **500 numbers:** < 5500 moves
+
+### Benchmarking Command
+
+Count operations for a random set of 500 numbers:
+
+```bash
+ARG=$(seq 1 500 | shuf); ./push_swap $ARG | wc -l
+```
+
+Verify correctness while counting moves:
+
+```bash
+ARG=$(seq 1 500 | shuf); ./push_swap $ARG | ./checker $ARG
+```
+
+## Resources
+
+### Documentation & References
+
+* **42-cursus.gitbook.io:** General understanding of the project and checking of error management scenarios.
+
+### Use of Artificial Intelligence
+
+In this project, Gemini (AI) was used as a thought partner for:
+
+* **Modularization:** Refactoring cost-calculation logic to comply with the 42 Norm (25-line limit)
+* **Debugging:** Identifying a checker bug caused by a nested loop in `get_next_line`
+* **Makefile Engineering:** Designing a flat object directory while preserving source organization

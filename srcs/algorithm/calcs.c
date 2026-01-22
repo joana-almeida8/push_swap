@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calcs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 09:59:44 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/20 10:30:06 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:13:40 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,13 @@ void	calc_cost_rotation(t_stack *a, t_stack *b, int *rot_a, int *rot_b)
 			*rot_b = (int)index;
 		}
 		if (total_cost == 0)
-			break;
+			break ;
 		index++;
 	}
 }
 
 void	calc_cost_push_b(unsigned int index, t_stack *a, t_stack *b)
 {
-	
 	if (index < a->size / 2)
 	{
 		while (index > 0)

@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/21 16:54:05 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/22 15:22:52 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,8 +140,8 @@ clean:
 	@echo "Objects removed."
 
 fclean: clean
-	$(RM) $(NAME)
-	@echo "Removed $(NAME)"
+	$(RM) $(NAME) $(NAME_BONUS)
+	@echo "Removed $(NAME) $(NAME_BONUS)"
 
 re: fclean all
 

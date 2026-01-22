@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:22:24 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/21 16:18:13 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:21:55 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	operate_stacks(t_stack *a, t_stack *b)
 		if (index == a->size)
 			return (exit(1), 0);
 		if (a->array[index] > a->array[index + 1])
-			break;
+			break ;
 		index++;
 	}
 	if (a->size == 2)
@@ -76,9 +76,9 @@ int	smallest_nbr_index(t_stack *a)
 int	get_chunks_nbr(t_stack *a)
 {
 	if (a->size <= 100)
-		return (5);
+		return (2);
 	else
-		return (10);
+		return (4);
 }
 
 int	get_chunk_max(int chunk, int chunks_nbr, int chunk_size, t_stack *a)
