@@ -97,7 +97,7 @@ ARG=$(seq 1 500 | shuf); ./push_swap $ARG | ./checker $ARG
 
 ### Documentation & References
 
-* **42-cursus.gitbook.io:** General understanding of the project and checking of error management scenarios.
+* **[42-cursus.gitbook.io](https://42-cursus.gitbook.io/guide/2-rank-02/push_swap):** General understanding of the project and error management check-list.
 
 ### Use of Artificial Intelligence
 

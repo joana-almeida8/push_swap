@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:25:29 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/22 10:57:30 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 10:19:26 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	int		len;
 	int		*tmp_array;
 
-	if (ac < 2)
+	if (ac <= 2)
 		return (0);
 	len = count_nums(ac, av);
 	input = malloc(len * sizeof(int));

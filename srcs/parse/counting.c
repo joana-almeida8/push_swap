@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:18:42 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/22 10:58:07 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 10:20:10 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,17 @@ int	count_nums(int ac, char **av)
 	int	count;
 	int	i;
 
-	if (ac > 1)
+	count = 0;
+	i = 1;
+	while (i < ac)
 	{
-		count = 0;
-		i = 1;
-		while (i < ac)
+		if (!validate_input(av[i]))
 		{
-			if (!validate_input(av[i]))
-			{
-				write(2, "Error\n", 6);
-				exit(1);
-			}
-			count += arg_check_num(av[i]);
-			i++;
+			write(2, "Error\n", 6);
+			exit(1);
 		}
-		return (count);
+		count += arg_check_num(av[i]);
+		i++;
 	}
-	return (0);
+	return (count);
 }
