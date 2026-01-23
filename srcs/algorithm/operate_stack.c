@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:22:24 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/22 15:21:55 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:25:22 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	operate_stacks(t_stack *a, t_stack *b)
 	index = 0;
 	while (index < a->size)
 	{
-		if (index == a->size)
+		if (index + 1 == a->size)
 			return (exit(1), 0);
 		if (a->array[index] > a->array[index + 1])
 			break ;

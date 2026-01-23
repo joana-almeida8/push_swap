@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:18:42 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/23 10:41:56 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:24:50 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,7 @@ int	count_nums(int ac, char **av)
 		count += arg_check_num(av[i]);
 		i++;
 	}
+	if (count == 1)
+		exit(1);
 	return (count);
 }
