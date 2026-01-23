@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/22 15:22:52 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/01/23 10:41:16 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS = srcs/main.c \
 		$(LIBFT)printf/ft_printf.c \
 		$(LIBFT)ft_substr.c \
 		$(LIBFT)ft_strlen.c \
+		$(LIBFT)ft_putstr_fd.c \
 		$(PARSE)counting.c \
 		$(PARSE)parse.c \
 		$(PARSE)utils.c \
@@ -58,6 +59,7 @@ SRCS_BONUS = $(BONUS_DIR)srcs/checker.c \
 				$(ALG)operate_stack.c \
 				$(LIBFT)ft_substr.c \
 				$(LIBFT)ft_strlen.c \
+				$(LIBFT)ft_putstr_fd.c \
 				$(LIBFT)printf/ft_printf.c \
 				$(LIBFT)printf/ft_printf_utils.c \
 				$(LIBFT)printf/ft_printf_utilz.c \

@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:03:46 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/22 10:58:22 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 10:41:32 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ long	ft_atol(char *str)
 		i++;
 	}
 	if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
-		return (write(2, "Error\n", 6), exit(1), 1);
+		return (ft_pstr_fd("Error\n", 2), exit(1), 1);
 	return (res * sign);
 }
 
@@ -78,7 +78,7 @@ int	fill_array(char **av, int i, int k, int *args)
 				return (0);
 			args[k] = ft_atol(substr);
 			if (check_double(args, k, args[k]) == 1)
-				return (free_str(substr), write(2, "Error\n", 6), exit(1), 1);
+				return (free_str(substr), ft_pstr_fd("Error\n", 2), exit(1), 1);
 			k++;
 			free_str(substr);
 			j = end;

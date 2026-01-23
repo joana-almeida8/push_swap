@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:13:40 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/20 10:28:33 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/01/23 10:46:29 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	reverse_ab(t_stack *a, t_stack *b);
 t_stack	*init_stack(t_stack *s, int *input, int	*tmp_array, int len);
 void	free_all(t_stack *a, t_stack *b, int *input);
 void	*free_str(char *str);
-void	*free_array(int *array);
 
 int		validate_input(char *str);
 int		arg_check_num(char *str);
@@ -94,6 +93,7 @@ int		fill_array(char **av, int i, int k, int *args);
 // LIBFT //
 char	*ft_substr(char *s, unsigned int start, unsigned int len);
 size_t	ft_strlen(const char *str);
+void	ft_pstr_fd(char *s, int fd);
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar_pf(char c);
