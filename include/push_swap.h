@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 08:13:40 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/23 10:46:29 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/02/11 08:04:05 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	sort_tmp_array(int *tmp_array, int *input, int len);
 void	pre_sort_b(int chunks_nbr, t_stack *a, t_stack *b);
 void	ft_swap(int *a, int *b);
 
-void	turc_push_to_a(t_stack *a, t_stack *b);
-int		turc_get_target(t_stack *a, t_stack *b, int idx_b);
+void	turk_push_to_a(t_stack *a, t_stack *b);
+int		turk_get_target(t_stack *a, t_stack *b, int idx_b);
 void	stacks_double_rots(t_stack *a, t_stack *b, int *rot_a, int *rot_b);
 void	rotate_final_stack(t_stack *s, int *rot_s, char flag);
 

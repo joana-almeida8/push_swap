@@ -17,7 +17,7 @@ The program outputs the smallest possible sequence of instructions that results 
 My implementation follows a four-stage architecture focused on performance, stability and speed:
 
 1. **Parsing:** I used a robust parser that handles quoted strings (e.g., `./push_swap "1 2 3"`), multiple arguments, integer overflows, and duplicate detection. Input values are first stored in a temporary array for validation and indexing, which simplifies later cost calculations.
-2. **Pre-sort (Chunk to B):** To reduce the complexity for the main algorithm, tack A is divided into chunks based on indexed values. Elements are progressively pushed from **Stack A** to **Stack B** based on these chunks, keeping the numbers somewhat organized in order reduce the complexity of reinsertion during the main algorithm.
+2. **Pre-sort (Chunk to B):** To reduce the complexity for the main algorithm, stack A is divided into chunks based on indexed values. Elements are progressively pushed from **Stack A** to **Stack B** based on these chunks, keeping the numbers somewhat organized in order reduce the complexity of reinsertion during the main algorithm.
 3. **Turk to A:** This is the core logic. I calculate the **cost** of moving each element from B back to its correct position in A. The cost is the sum of rotations needed in both stacks. The algorithm picks the "cheapest" element and uses optimized rotations (like `rr` or `rrr`) to move it.
 4. **Final Alignment:** Once Stack B is empty and Stack A is sorted (but potentially rotated), a final set of rotations ensures the smallest number is at the top.
 

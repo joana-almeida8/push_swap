@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_to_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:09:21 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/20 10:12:05 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/02/11 08:02:05 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	big_swap(t_stack *a, t_stack *b)
 	pre_sort_b(chunks_nbr, a, b);
 	free(a->tmp_array);
 	sort_3(a);
-	turc_push_to_a(a, b);
+	turk_push_to_a(a, b);
 	min_nbr_idx = smallest_nbr_index(a);
 	if (min_nbr_idx < (int)a->size / 2)
 	{

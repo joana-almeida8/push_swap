@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turc_to_a.c                                        :+:      :+:    :+:   */
+/*   turk_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jreis-de <jreis-de@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:54:49 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/20 10:11:31 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/02/11 08:03:26 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	turc_get_target(t_stack *a, t_stack *b, int idx_b)
+int	turk_get_target(t_stack *a, t_stack *b, int idx_b)
 {
 	int		index;
 	int		target_idx;
@@ -83,7 +83,7 @@ void	rotate_final_stack(t_stack *s, int *rot_s, char flag)
 	}
 }
 
-void	turc_push_to_a(t_stack *a, t_stack *b)
+void	turk_push_to_a(t_stack *a, t_stack *b)
 {
 	int	rot_a;
 	int	rot_b;

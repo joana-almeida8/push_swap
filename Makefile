@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/01/23 10:41:16 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/02/11 08:10:04 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ PARSE = srcs/parse/
 OPS = srcs/ops/
 ALG = srcs/algorithm/
 BONUS = bonus/
-OBJ_DIR = objs/
-OBJ_DIR_BONUS = bonus/objs/
+OBJ_DIR = objs
+OBJ_DIR_BONUS = bonus/objs
 
 SRCS = srcs/main.c \
 		$(LIBFT)printf/ft_printf_utils.c \
@@ -39,7 +39,7 @@ SRCS = srcs/main.c \
 		$(ALG)calcs.c \
 		$(ALG)small_swaps.c \
 		$(ALG)chunk_to_b.c \
-		$(ALG)turc_to_a.c
+		$(ALG)turk_to_a.c
 
 SRCS_BONUS = $(BONUS_DIR)srcs/checker.c \
 				$(BONUS_DIR)srcs/checker_utils.c \
@@ -53,7 +53,7 @@ SRCS_BONUS = $(BONUS_DIR)srcs/checker.c \
 				$(PARSE)utils.c \
 				$(PARSE)counting.c \
 				$(ALG)calcs.c \
-				$(ALG)turc_to_a.c \
+				$(ALG)turk_to_a.c \
 				$(ALG)chunk_to_b.c \
 				$(ALG)small_swaps.c \
 				$(ALG)operate_stack.c \

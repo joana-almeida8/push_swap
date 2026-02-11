@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 09:59:44 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/23 10:42:26 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/02/11 08:02:39 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	calc_cost_rotation(t_stack *a, t_stack *b, int *rot_a, int *rot_b)
 	best_cost = INT_MAX;
 	while (index < b->size)
 	{
-		pos_a = turc_get_target(a, b, index);
+		pos_a = turk_get_target(a, b, index);
 		total_cost = calc_total_cost(a, b, pos_a, index);
 		if (total_cost < best_cost)
 		{
