@@ -6,7 +6,7 @@
 /*   By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:18:42 by jreis-de          #+#    #+#             */
-/*   Updated: 2026/01/23 12:24:50 by jreis-de         ###   ########.fr       */
+/*   Updated: 2026/02/11 10:44:36 by jreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	count_nums(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		if (!validate_input(av[i]))
+		if (validate_input(av[i]))
 		{
 			ft_pstr_fd("Error\n", 2);
 			exit(1);

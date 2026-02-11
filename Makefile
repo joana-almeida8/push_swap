@@ -6,7 +6,7 @@
 #    By: jreis-de <jreis-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 09:07:40 by jreis-de          #+#    #+#              #
-#    Updated: 2026/02/11 08:10:04 by jreis-de         ###   ########.fr        #
+#    Updated: 2026/02/11 10:26:45 by jreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,10 @@ SRCS = srcs/main.c \
 		$(ALG)chunk_to_b.c \
 		$(ALG)turk_to_a.c
 
-SRCS_BONUS = $(BONUS_DIR)srcs/checker.c \
-				$(BONUS_DIR)srcs/checker_utils.c \
-				$(BONUS_DIR)get_next_line/get_next_line.c \
-				$(BONUS_DIR)get_next_line/get_next_line_utils.c \
+SRCS_BONUS = $(BONUS)srcs/checker.c \
+				$(BONUS)srcs/checker_utils.c \
+				$(BONUS)get_next_line/get_next_line.c \
+				$(BONUS)get_next_line/get_next_line_utils.c \
 				$(OPS)swap.c \
 				$(OPS)push.c \
 				$(OPS)rotate.c \
@@ -65,7 +65,7 @@ SRCS_BONUS = $(BONUS_DIR)srcs/checker.c \
 				$(LIBFT)printf/ft_printf_utilz.c \
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
-OBJS_BONUS = $(addprefix $(OBJ_DIR_BONUS), $(notdir $(SRCS_BONUS:.c=.o)))
+OBJS_BONUS = $(addprefix $(OBJ_DIR_BONUS)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iinclude
@@ -105,35 +105,35 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 	
-$(OBJ_DIR_BONUS)%.o: bonus/srcs/%.c
+$(OBJ_DIR_BONUS)/%.o: bonus/srcs/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: srcs/libft/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/libft/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 	
-$(OBJ_DIR_BONUS)%.o: srcs/libft/printf/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/libft/printf/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: srcs/algorithm/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/algorithm/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: srcs/parse/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/parse/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: srcs/ops/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/ops/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: srcs/algorithm/%.c
+$(OBJ_DIR_BONUS)/%.o: srcs/algorithm/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR_BONUS)%.o: bonus/get_next_line/%.c
+$(OBJ_DIR_BONUS)/%.o: bonus/get_next_line/%.c
 	@mkdir -p $(OBJ_DIR_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
